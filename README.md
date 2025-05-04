@@ -45,8 +45,10 @@ Simulate the design and observe the outputs (Q, Qbar) for each input case.
 Compare output behavior with the JK flip-flop truth table to validate correctness.
 
 **PROGRAM**
+```
 devloped by : KISHORE V 
 reg no: 212224240077
+```
 ```
 module exp7 (input J, input K, input clk, output reg q, output reg qbar);
 initial begin
