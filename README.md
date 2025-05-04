@@ -34,15 +34,45 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+Design the JK flip-flop module in Verilog with inputs J, K, clk, and outputs Q, Qbar.
+
+Use always @(posedge clk) to define flip-flop behavior based on JK input combinations.
+
+Create a testbench to apply all possible input combinations (J, K) with clock pulses.
+
+Simulate the design and observe the outputs (Q, Qbar) for each input case.
+
+Compare output behavior with the JK flip-flop truth table to validate correctness.
 
 **PROGRAM**
+devloped by : KISHORE V 
+reg no: 212224240077
+```
+module exp7 (input J, input K, input clk, output reg q, output reg qbar);
+initial begin
+  q = 0;
+  qbar = 1;
+end
+always @(posedge clk) begin
+  case ({J, K})
+    2'b00: q <= q;         
+    2'b01: q <= 0;        
+    2'b10: q <= 1;
+    2'b11: q <= ~q;   
+  endcase
+  qbar <= ~q;
+end
+endmodule
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
-
+```
 **RTL LOGIC FOR FLIPFLOPS**
+
+![simulation](https://github.com/user-attachments/assets/f1a541f6-d6a3-4bd3-8265-6470b6e48381)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![waveform](https://github.com/user-attachments/assets/3e9803a2-fbfa-4353-9f7a-c2936a083c2b)
+
 **RESULTS**
+
+The JK flip-flop was successfully implemented and verified in Verilog, with output behavior matching its functional truth table.
