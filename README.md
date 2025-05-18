@@ -45,28 +45,25 @@ Simulate the design and observe the outputs (Q, Qbar) for each input case.
 Compare output behavior with the JK flip-flop truth table to validate correctness.
 
 **PROGRAM**
+DEVELOPED BY : KISHORE V REG NO:212224240077
 ```
-devloped by : KISHORE V 
-reg no: 212224240077
-```
-```
-module exp7 (input J, input K, input clk, output reg q, output reg qbar);
-initial begin
-  q = 0;
-  qbar = 1;
-end
-always @(posedge clk) begin
-  case ({J, K})
-    2'b00: q <= q;         
-    2'b01: q <= 0;        
-    2'b10: q <= 1;
-    2'b11: q <= ~q;   
-  endcase
-  qbar <= ~q;
-end
-endmodule
+module exp(J,K,clk,q,qbar);
+input J,K,clk;
+output reg q;
+output reg qbar;
 
+initial q=0;
+initial qbar=1;
+
+always @(posedge clk)
+begin
+  q = ((J & (~q)) | ((~K) & q));
+  qbar = ~q;
+end
+
+endmodule
 ```
+
 **RTL LOGIC FOR FLIPFLOPS**
 
 ![simulation](https://github.com/user-attachments/assets/f1a541f6-d6a3-4bd3-8265-6470b6e48381)
